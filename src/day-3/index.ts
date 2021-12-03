@@ -17,12 +17,15 @@ const main = async () => {
         });
     });
     
-    const answer = [];
+    const gamma = [];
+    const epsilon = [];
     for (const [key, value] of counts.entries()) {
-        answer[key] = value[0] > value[1] ? 0 : 1;
+        gamma[key] = value[0] > value[1] ? 0 : 1;
+        epsilon[key] = value[0] < value[1] ? 0 : 1;
     }
 
-    console.log(`Binary: ${answer.join('')} - Decimal ${parseInt(answer.join(''), 2)}`);
+    const power = parseInt(gamma.join(''), 2) * parseInt(epsilon.join(''), 2);
+    console.log(power);
 };
 
 main().catch((err) => {
